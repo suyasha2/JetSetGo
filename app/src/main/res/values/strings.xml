@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Travel</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="title_activity_forgot">ForgotActivity</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="title_activity_add_product">AddProduct</string>
+    <string name="title_activity_splash_screen_body">SplashScreenBody</string>
+    <string name="title_activity_dashboard_screen">DashboardScreen</string>
+    <string name="title_activity_color_constants">ColorConstants</string>
+    <string name="title_activity_auth_result">AuthResult</string>
+    <string name="title_activity_main_activityuu">MainActivityuu</string>
+</resources>
