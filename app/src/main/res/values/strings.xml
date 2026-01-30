@@ -11,4 +11,6 @@
     <string name="title_activity_color_constants">ColorConstants</string>
     <string name="title_activity_auth_result">AuthResult</string>
     <string name="title_activity_main_activityuu">MainActivityuu</string>
+    <string name="title_activity_dashboard_screen_ui">DashboardScreenUI</string>
+    <string name="title_activity_destination_details_screen">DestinationDetailsScreen</string>
 </resources>

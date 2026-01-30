@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.travel.ui.theme.TravelTheme
-import com.example.travel.view.DashboardScreen
+import com.example.travel.view.DashboardScreenUI
 import com.example.travel.view.ForgotPasswordScreen
 import com.example.travel.view.LoginScreen
 import com.example.travel.view.RegisterScreen
@@ -20,6 +20,7 @@ object Destinations {
     const val REGISTER = "register"
     const val FORGOT_PASSWORD = "forgot_password"
     const val DASHBOARD = "dashboard"
+
 }
 
 class MainActivity : ComponentActivity() {
@@ -104,7 +105,7 @@ fun TravelNavHost() {
         // --- 5. DASHBOARD SCREEN ---
         composable(Destinations.DASHBOARD) {
             // You need to define this composable function elsewhere
-            DashboardScreen(
+            DashboardScreenUI(
                 onNavigateToLogin = {
                     // When Logout is clicked, navigate back to Login and clear the dashboard
                     navController.navigate(Destinations.LOGIN) {

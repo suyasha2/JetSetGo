@@ -12,6 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel">
         <activity
+            android:name=".view.DestinationDetailsScreen"
+            android:exported="true"
+            android:label="@string/title_activity_destination_details_screen"
+            android:theme="@style/Theme.Travel">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.DashboardScreenUI"
+            android:exported="true"
+            android:label="@string/title_activity_dashboard_screen_ui"
+            android:theme="@style/Theme.Travel">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".model.MainActivityuu"
             android:exported="true"
             android:label="@string/title_activity_main_activityuu"
