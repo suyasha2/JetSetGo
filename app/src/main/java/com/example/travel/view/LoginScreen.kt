@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -18,6 +19,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -37,17 +41,15 @@ fun LoginScreen(
     val DarkTitleColor = Color(0xFF204161)
     val CardBgColor = Color.White.copy(alpha = 0.8f)
     val LinkColor = Color(0xFF4A90E2)
-
     val AccentColor = Color(0xFFF7E8E8)
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var passwordVisible by remember { mutableStateOf(false) }
 
     val isLoading by viewModel.isLoading
     val authResult by viewModel.authResult
-
     val snackbarHostState = remember { SnackbarHostState() }
-
 
     LaunchedEffect(authResult) {
         authResult?.let { result ->
@@ -64,7 +66,6 @@ fun LoginScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { paddingValues ->
-
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -82,8 +83,7 @@ fun LoginScreen(
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(100.dp))
 
                 Card(
                     modifier = Modifier.fillMaxWidth(),
@@ -96,10 +96,12 @@ fun LoginScreen(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text("Welcome Back!", fontSize = 30.sp, fontWeight = FontWeight.Bold, color = DarkTitleColor)
+
                         Spacer(modifier = Modifier.height(25.dp))
 
                         Image(
-                            painter = painterResource(R.drawable.logo), contentDescription = "Travel Logo",
+                            painter = painterResource(R.drawable.logo),
+                            contentDescription = "Travel Logo",
                             modifier = Modifier
                                 .fillMaxWidth().height(150.dp).clip(RoundedCornerShape(15.dp))
                                 .background(AccentColor)
@@ -107,43 +109,68 @@ fun LoginScreen(
 
                         Spacer(modifier = Modifier.height(25.dp))
 
-                        // Input Fields
-                        OutlinedTextField(value = email, onValueChange = { email = it }, label = { Text("Email") },
-                            modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(10.dp)
+                        // Email Field
+                        OutlinedTextField(
+                            value = email,
+                            onValueChange = { email = it },
+                            label = { Text("Email") },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(10.dp),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                            singleLine = true
                         )
+
                         Spacer(modifier = Modifier.height(16.dp))
-                        OutlinedTextField(value = password, onValueChange = { password = it }, label = { Text("Password") },
-                            modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(10.dp)
+
+                        // Password Field with DRAWABLE visibility toggle
+                        OutlinedTextField(
+                            value = password,
+                            onValueChange = { password = it },
+                            label = { Text("Password") },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(10.dp),
+                            singleLine = true,
+                            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                            trailingIcon = {
+                                // Logic to pick the drawable ID
+                                val iconRes = if (passwordVisible)
+                                    R.drawable.outline_visibility_24
+                                else
+                                    R.drawable.outline_visibility_off_24
+
+                                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                                    Icon(
+                                        painter = painterResource(id = iconRes),
+                                        contentDescription = "Toggle Password Visibility",
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                }
+                            }
                         )
 
                         Box(
-                            modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
                             contentAlignment = Alignment.CenterEnd
                         ) {
                             Text(
                                 text = "Forgot Password?",
                                 modifier = Modifier.clickable { onNavigateToForgotPassword() },
-                                color = LinkColor,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.SemiBold
+                                color = LinkColor, fontSize = 14.sp, fontWeight = FontWeight.SemiBold
                             )
                         }
 
-                        Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.height(25.dp))
 
                         Button(
-                            onClick = {
-                                viewModel.login(email, password) {
-                                    onLoginSuccess()
-                                }
-                            },
+                            onClick = { viewModel.login(email, password) { onLoginSuccess() } },
                             enabled = !isLoading,
                             modifier = Modifier.fillMaxWidth().height(55.dp),
                             shape = RoundedCornerShape(14.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = PrimaryBlue, contentColor = Color.White)
                         ) {
                             if (isLoading) {
-                                CircularProgressIndicator(color = Color.White)
+                                CircularProgressIndicator(modifier = Modifier.size(24.dp), color = Color.White)
                             } else {
                                 Text("Sign In", fontSize = 17.sp, fontWeight = FontWeight.Medium)
                             }
@@ -163,6 +190,7 @@ fun LoginScreen(
                         )
                     }
                 }
+                Spacer(modifier = Modifier.height(20.dp))
             }
         }
     }
