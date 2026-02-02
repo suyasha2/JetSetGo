@@ -167,74 +167,74 @@ fun RegisterScreen(
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-//                        // Confirm Password Field
-//                        OutlinedTextField(
-//                            value = confirmPassword,
-//                            onValueChange = { confirmPassword = it },
-//                            label = { Text("Confirm Password") },
-//                            modifier = Modifier.fillMaxWidth(),
-//                            shape = RoundedCornerShape(10.dp),
-//                            visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-//                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-//                            singleLine = true,
-//                            trailingIcon = {
-//                                val iconRes = if (confirmPasswordVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_off_24
-//                                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
-//                                    Icon(painter = painterResource(id = iconRes), contentDescription = null, modifier = Modifier.size(24.dp))
-//                                }
-//                            }
-//                        )
-//
-//                        Spacer(modifier = Modifier.height(20.dp))
-//
-//                        Button(
-//                            onClick = {
-//                                if (fullName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && password == confirmPassword) {
-//                                    viewModel.register(fullName, email, password) {
-//                                        onRegisterSuccess()
-//                                    }
-//                                } else if (password != confirmPassword) {
-//                                    viewModel.authResult.value = AuthResult(false, "Passwords do not match!")
-//                                } else {
-//                                    viewModel.authResult.value = AuthResult(false, "Please fill in all fields.")
-//                                }
-//                            },
-//                            enabled = !isLoading,
-//                            modifier = Modifier.fillMaxWidth().height(50.dp),
-//                            shape = RoundedCornerShape(12.dp),
-//                            colors = ButtonDefaults.buttonColors(containerColor = PrimaryBlue, contentColor = Color.White)
-//                        ) {
-//                            if (isLoading) {
-//                                CircularProgressIndicator(modifier = Modifier.size(24.dp), color = Color.White)
-//                            } else {
-//                                Text("Create Account", fontSize = 16.sp, fontWeight = FontWeight.Medium)
-//                            }
-//                        }
-//
-//                        Spacer(modifier = Modifier.height(16.dp))
-//
-//                        Text(
-//                            text = buildAnnotatedString {
-//                                append("Already have an account? ")
-//                                pushStyle(SpanStyle(color = LinkColor, fontWeight = FontWeight.Bold))
-//                                append("Login")
-//                                pop()
-//                            },
-//                            modifier = Modifier.clickable { onNavigateToLogin() },
-//                            fontSize = 14.sp
-//                        )
-//                    }
-//                }
-//
-//                Spacer(modifier = Modifier.height(16.dp))
-//
-//                Text(
-//                    "© 2026 Travel Explorer",
-//                    fontSize = 12.sp,
-//                    color = Color.DarkGray.copy(alpha = 0.7f),
-//                    textAlign = TextAlign.Center
-//                )
-//            }
-//        }
-//    }
-//}
+                        // Confirm Password Field
+                        OutlinedTextField(
+                            value = confirmPassword,
+                            onValueChange = { confirmPassword = it },
+                            label = { Text("Confirm Password") },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(10.dp),
+                            visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                            singleLine = true,
+                            trailingIcon = {
+                                val iconRes = if (confirmPasswordVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_off_24
+                                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
+                                    Icon(painter = painterResource(id = iconRes), contentDescription = null, modifier = Modifier.size(24.dp))
+                                }
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Button(
+                            onClick = {
+                                if (fullName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && password == confirmPassword) {
+                                    viewModel.register(fullName, email, password) {
+                                        onRegisterSuccess()
+                                    }
+                                } else if (password != confirmPassword) {
+                                    viewModel.authResult.value = AuthResult(false, "Passwords do not match!")
+                                } else {
+                                    viewModel.authResult.value = AuthResult(false, "Please fill in all fields.")
+                                }
+                            },
+                            enabled = !isLoading,
+                            modifier = Modifier.fillMaxWidth().height(50.dp),
+                            shape = RoundedCornerShape(12.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = PrimaryBlue, contentColor = Color.White)
+                        ) {
+                            if (isLoading) {
+                                CircularProgressIndicator(modifier = Modifier.size(24.dp), color = Color.White)
+                            } else {
+                                Text("Create Account", fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Text(
+                            text = buildAnnotatedString {
+                                append("Already have an account? ")
+                                pushStyle(SpanStyle(color = LinkColor, fontWeight = FontWeight.Bold))
+                                append("Login")
+                                pop()
+                            },
+                            modifier = Modifier.clickable { onNavigateToLogin() },
+                            fontSize = 14.sp
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    "© 2026 Travel Explorer",
+                    fontSize = 12.sp,
+                    color = Color.DarkGray.copy(alpha = 0.7f),
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
+    }
+}
