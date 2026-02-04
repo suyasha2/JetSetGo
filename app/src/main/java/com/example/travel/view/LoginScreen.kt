@@ -33,7 +33,6 @@ fun LoginScreen(
     onLoginSuccess: () -> Unit,
     onNavigateToRegister: () -> Unit,
     onNavigateToForgotPassword: () -> Unit,
-    onGoogleSignIn: () -> Unit,
     viewModel: AuthViewModel = viewModel()
 ) {
     val PrimaryBlue = Color(0xFF4A90E2)
