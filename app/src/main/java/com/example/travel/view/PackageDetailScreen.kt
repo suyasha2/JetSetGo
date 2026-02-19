@@ -32,3 +32,29 @@ fun PackageDetailScreen(pkg: TravelPackage, onBack: () -> Unit) {
                 }
             }
         }
+    ) { padding ->
+        LazyColumn(modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 20.dp)) {
+            item {
+                Spacer(modifier = Modifier.height(20.dp))
+                IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, contentDescription = null) }
+                Text(pkg.name, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
+                Text(pkg.location, color = Color.Gray)
+                Spacer(modifier = Modifier.height(25.dp))
+                Card(modifier = Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = Color(0xFFF0F7FF)), shape = RoundedCornerShape(20.dp)) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(" PLAN YOUR TRIP", fontWeight = FontWeight.ExtraBold, color = Color(0xFF0081C9))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Default.Info, null, tint = Color(0xFF0081C9), modifier = Modifier.size(18.dp))
+                            Text("  ${pkg.duration}", fontWeight = FontWeight.Bold)
+                        }
+                        pkg.packages.forEach { item ->
+                            Row(modifier = Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Default.CheckCircle, null, tint = Color(0xFF4CAF50), modifier = Modifier.size(18.dp))
+                                Text("  $item", fontSize = 14.sp)
+                            }
+                        }
+                    }
+                }
+                Text("ITINERARY", fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(top = 25.dp, bottom = 10.dp))
+            }
