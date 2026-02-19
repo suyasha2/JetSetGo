@@ -58,3 +58,13 @@ fun PackageDetailScreen(pkg: TravelPackage, onBack: () -> Unit) {
                 }
                 Text("ITINERARY", fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(top = 25.dp, bottom = 10.dp))
             }
+            items(pkg.itinerary) { step ->
+                Row(modifier = Modifier.padding(bottom = 15.dp)) {
+                    Text(step.day, fontWeight = FontWeight.Bold, color = Color(0xFF0081C9), modifier = Modifier.width(40.dp))
+                    Column { Text(step.title, fontWeight = FontWeight.Bold); Text(step.detail, fontSize = 13.sp, color = Color.Gray) }
+                }
+            }
+            item { Spacer(modifier = Modifier.height(80.dp)) }
+        }
+    }
+}
