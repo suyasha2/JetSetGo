@@ -40,7 +40,6 @@ fun LoginScreen(
     val DarkTitleColor = Color(0xFF204161)
     val CardBgColor = Color.White.copy(alpha = 0.8f)
     val LinkColor = Color(0xFF4A90E2)
-    val AccentColor = Color(0xFFF7E8E8)
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -98,17 +97,17 @@ fun LoginScreen(
 
                         Spacer(modifier = Modifier.height(25.dp))
 
+                        // LOGO: Pink background hataiyo
                         Image(
                             painter = painterResource(R.drawable.logo),
                             contentDescription = "Travel Logo",
                             modifier = Modifier
                                 .fillMaxWidth().height(150.dp).clip(RoundedCornerShape(15.dp))
-                                .background(AccentColor)
                         )
 
                         Spacer(modifier = Modifier.height(25.dp))
 
-                        // Email Field
+                        // Email: Dark Border thapiyo
                         OutlinedTextField(
                             value = email,
                             onValueChange = { email = it },
@@ -116,12 +115,16 @@ fun LoginScreen(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(10.dp),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                            singleLine = true
+                            singleLine = true,
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = PrimaryBlue,
+                                unfocusedBorderColor = Color.Black.copy(alpha = 0.5f)
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Password Field with DRAWABLE visibility toggle
+                        // Password: Dark Border thapiyo
                         OutlinedTextField(
                             value = password,
                             onValueChange = { password = it },
@@ -131,8 +134,11 @@ fun LoginScreen(
                             singleLine = true,
                             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = PrimaryBlue,
+                                unfocusedBorderColor = Color.Black.copy(alpha = 0.5f)
+                            ),
                             trailingIcon = {
-                                // Logic to pick the drawable ID
                                 val iconRes = if (passwordVisible)
                                     R.drawable.outline_visibility_24
                                 else
