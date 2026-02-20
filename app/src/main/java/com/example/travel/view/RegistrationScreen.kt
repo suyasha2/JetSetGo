@@ -41,7 +41,6 @@ fun RegisterScreen(
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
 
-    // States for password visibility
     var passwordVisible by remember { mutableStateOf(false) }
     var confirmPasswordVisible by remember { mutableStateOf(false) }
 
@@ -50,7 +49,6 @@ fun RegisterScreen(
     val DarkTitleColor = Color(0xFF204161)
     val CardBgColor = Color.White.copy(alpha = 0.8f)
     val LinkColor = Color(0xFF4A90E2)
-    val AccentColor = Color(0xFFF7E8E8)
 
     val isLoading by viewModel.isLoading
     val authResult by viewModel.authResult
@@ -58,12 +56,7 @@ fun RegisterScreen(
 
     LaunchedEffect(authResult) {
         authResult?.let { result ->
-            snackbarHostState.showSnackbar(
-                message = result.message,
-                actionLabel = "DISMISS",
-                withDismissAction = true,
-                duration = SnackbarDuration.Short
-            )
+            snackbarHostState.showSnackbar(message = result.message)
             viewModel.clearResult()
         }
     }
@@ -74,11 +67,7 @@ fun RegisterScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(
-                    brush = Brush.verticalGradient(
-                        listOf(PrimaryBlue, SecondaryBlue, Color(0xFFFFFFFF))
-                    )
-                )
+                .background(brush = Brush.verticalGradient(listOf(PrimaryBlue, SecondaryBlue, Color.White)))
                 .padding(paddingValues)
         ) {
             Column(
@@ -97,7 +86,7 @@ fun RegisterScreen(
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Column(
-                        modifier = Modifier.padding(20.dp),
+                        modifier = Modifier.padding(horizontal = 30.dp, vertical = 20.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
@@ -117,66 +106,65 @@ fun RegisterScreen(
                                 .fillMaxWidth()
                                 .height(120.dp)
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(AccentColor)
                         )
 
                         Spacer(modifier = Modifier.height(20.dp))
 
-                        // Full Name
+                        val textFieldColors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = PrimaryBlue,
+                            unfocusedBorderColor = Color.Black.copy(alpha = 0.5f)
+                        )
+
+                        // Sabai field ma Modifier.padding(vertical = 5.dp) thapiyo border clear garauna
                         OutlinedTextField(
                             value = fullName,
                             onValueChange = { fullName = it },
                             label = { Text("Full Name") },
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp),
                             shape = RoundedCornerShape(10.dp),
-                            singleLine = true
+                            singleLine = true,
+                            colors = textFieldColors
                         )
 
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        // Email
                         OutlinedTextField(
                             value = email,
                             onValueChange = { email = it },
                             label = { Text("Email") },
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp),
                             shape = RoundedCornerShape(10.dp),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                            singleLine = true
+                            singleLine = true,
+                            colors = textFieldColors
                         )
 
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        // Password Field
                         OutlinedTextField(
                             value = password,
                             onValueChange = { password = it },
                             label = { Text("Password") },
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp),
                             shape = RoundedCornerShape(10.dp),
                             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                             singleLine = true,
+                            colors = textFieldColors,
                             trailingIcon = {
-                                val iconRes = if (passwordVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_24
+                                val iconRes = if (passwordVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_off_24
                                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
                                     Icon(painter = painterResource(id = iconRes), contentDescription = null, modifier = Modifier.size(24.dp))
                                 }
                             }
                         )
 
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        // Confirm Password Field
                         OutlinedTextField(
                             value = confirmPassword,
                             onValueChange = { confirmPassword = it },
                             label = { Text("Confirm Password") },
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp),
                             shape = RoundedCornerShape(10.dp),
                             visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                             singleLine = true,
+                            colors = textFieldColors,
                             trailingIcon = {
                                 val iconRes = if (confirmPasswordVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_off_24
                                 IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
@@ -213,28 +201,3 @@ fun RegisterScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        Text(
-                            text = buildAnnotatedString {
-                                append("Already have an account? ")
-                                pushStyle(SpanStyle(color = LinkColor, fontWeight = FontWeight.Bold))
-                                append("Login")
-                                pop()
-                            },
-                            modifier = Modifier.clickable { onNavigateToLogin() },
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    "© 2026 Travel Explorer",
-                    fontSize = 12.sp,
-                    color = Color.DarkGray.copy(alpha = 0.7f),
-                    textAlign = TextAlign.Center
-                )
-            }
-        }
-    }
-}
