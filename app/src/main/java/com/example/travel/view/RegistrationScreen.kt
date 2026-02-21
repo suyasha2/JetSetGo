@@ -201,3 +201,28 @@ fun RegisterScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
+                        Text(
+                            text = buildAnnotatedString {
+                                append("Already have an account? ")
+                                pushStyle(SpanStyle(color = LinkColor, fontWeight = FontWeight.Bold))
+                                append("Login")
+                                pop()
+                            },
+                            modifier = Modifier.clickable { onNavigateToLogin() },
+                            fontSize = 14.sp
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    "© 2026 Travel Explorer",
+                    fontSize = 12.sp,
+                    color = Color.DarkGray.copy(alpha = 0.7f),
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
+    }
+}
