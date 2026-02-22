@@ -97,7 +97,6 @@ fun LoginScreen(
 
                         Spacer(modifier = Modifier.height(25.dp))
 
-                        // LOGO: Pink background hataiyo
                         Image(
                             painter = painterResource(R.drawable.logo),
                             contentDescription = "Travel Logo",
@@ -107,7 +106,6 @@ fun LoginScreen(
 
                         Spacer(modifier = Modifier.height(25.dp))
 
-                        // Email: Dark Border thapiyo
                         OutlinedTextField(
                             value = email,
                             onValueChange = { email = it },
@@ -124,7 +122,6 @@ fun LoginScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Password: Dark Border thapiyo
                         OutlinedTextField(
                             value = password,
                             onValueChange = { password = it },
