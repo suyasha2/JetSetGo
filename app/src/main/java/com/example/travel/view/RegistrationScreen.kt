@@ -115,7 +115,7 @@ fun RegisterScreen(
                             unfocusedBorderColor = Color.Black.copy(alpha = 0.5f)
                         )
 
-                        // Sabai field ma Modifier.padding(vertical = 5.dp) thapiyo border clear garauna
+
                         OutlinedTextField(
                             value = fullName,
                             onValueChange = { fullName = it },
