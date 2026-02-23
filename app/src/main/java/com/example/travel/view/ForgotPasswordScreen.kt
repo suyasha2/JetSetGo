@@ -39,7 +39,6 @@ fun ForgotPasswordScreen(onBackToLogin: () -> Unit, viewModel: AuthViewModel = v
     val DarkTitleColor = Color(0xFF204161)
     val CardBgColor = Color.White.copy(alpha = 0.8f)
     val LinkColor = Color(0xFF4A90E2)
-    val AccentColor = Color(0xFFF7E8E8)
 
     LaunchedEffect(authResult) {
         authResult?.let { result ->
@@ -85,7 +84,7 @@ fun ForgotPasswordScreen(onBackToLogin: () -> Unit, viewModel: AuthViewModel = v
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Column(
-                        modifier = Modifier.padding(20.dp),
+                        modifier = Modifier.padding(horizontal = 30.dp, vertical = 25.dp), // Padding milayeko
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
@@ -115,18 +114,21 @@ fun ForgotPasswordScreen(onBackToLogin: () -> Unit, viewModel: AuthViewModel = v
                                 .fillMaxWidth()
                                 .height(120.dp)
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(AccentColor)
                         )
 
-                        Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.height(30.dp))
 
                         OutlinedTextField(
                             value = email,
                             onValueChange = { email = it },
-                            label = { Text("Email") },
-                            modifier = Modifier.fillMaxWidth(),
+                            placeholder = { Text("Email Address") },
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                             shape = RoundedCornerShape(10.dp),
-                            singleLine = true
+                            singleLine = true,
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = PrimaryBlue,
+                                unfocusedBorderColor = Color.Black.copy(alpha = 0.5f)
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(25.dp))
@@ -173,7 +175,7 @@ fun ForgotPasswordScreen(onBackToLogin: () -> Unit, viewModel: AuthViewModel = v
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    "© 2024 Travel Explorer",
+                    "© 2026 Travel Explorer",
                     fontSize = 12.sp,
                     color = Color.DarkGray.copy(alpha = 0.7f),
                     textAlign = TextAlign.Center
