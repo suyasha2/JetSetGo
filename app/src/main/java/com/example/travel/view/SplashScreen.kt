@@ -84,7 +84,7 @@ fun SplashScreenBody(onTimeout: () -> Unit) {
 
                 // Description Text
                 Text(
-                    text = "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world.",
+                    text = "At Friends tours and travel, we customize reliable and trustworthy tours to destinations in Nepal.",
                     fontSize = 15.sp,
                     color = Color.Gray,
                     textAlign = TextAlign.Center,
