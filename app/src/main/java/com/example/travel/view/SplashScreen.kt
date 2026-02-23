@@ -39,25 +39,24 @@ fun SplashScreenBody(onTimeout: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            // 1. Mathi ko Logo Part (Thulo size ra balanced padding)
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1.2f), // Mathi ko space ali dherai lina
+                    .weight(1.2f),
                 verticalArrangement = Arrangement.Center
             ) {
                 Image(
                     painter = painterResource(R.drawable.logo),
                     contentDescription = "Logo",
                     modifier = Modifier
-                        .size(240.dp) // Screenshot ko feel dina size thulo banayeko
+                        .size(240.dp)
                         .padding(20.dp),
                     contentScale = ContentScale.Fit
                 )
             }
 
-            // 2. Tala ko Content Box (Screenshot jastai spacing)
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -95,7 +94,7 @@ fun SplashScreenBody(onTimeout: () -> Unit) {
 
                 Spacer(modifier = Modifier.height(50.dp))
 
-                // Modern Progress Bar (Halka thulo)
+                // Modern Progress Bar
                 LinearProgressIndicator(
                     modifier = Modifier
                         .width(60.dp)
