@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -72,5 +73,10 @@ dependencies {
         // 2. Coroutines (needed for delay in Splash Screen)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    
+    implementation("androidx.navigation:navigation-compose:2.8.5")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+
+
+
 }
