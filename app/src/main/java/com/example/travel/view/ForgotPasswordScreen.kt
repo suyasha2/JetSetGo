@@ -84,7 +84,7 @@ fun ForgotPasswordScreen(onBackToLogin: () -> Unit, viewModel: AuthViewModel = v
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Column(
-                        modifier = Modifier.padding(horizontal = 30.dp, vertical = 25.dp), // Padding milayeko
+                        modifier = Modifier.padding(horizontal = 30.dp, vertical = 25.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
