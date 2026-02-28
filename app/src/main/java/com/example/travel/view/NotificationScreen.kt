@@ -31,7 +31,7 @@ fun NotificationScreen(
                 title = {
                     Text(
                         "Notifications",
-                        style = MaterialTheme.typography.headlineSmall, // Clearer headline
+                        style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold
                     )
                 },
@@ -70,13 +70,13 @@ fun NotificationScreen(
                             .padding(vertical = 8.dp),
                         shape = RoundedCornerShape(12.dp),
                         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF0F7FF)) // Light Blue
+                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF0F7FF))
                     ) {
                         Row(
                             modifier = Modifier.padding(16.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            // Icon sharp banau
+
                             Surface(
                                 modifier = Modifier.size(40.dp),
                                 shape = RoundedCornerShape(8.dp),
@@ -90,18 +90,18 @@ fun NotificationScreen(
                             Spacer(modifier = Modifier.width(16.dp))
 
                             Column(modifier = Modifier.weight(1f)) {
-                                // Title (Sharp & Bold)
+                                // Title//
                                 Text(
                                     text = "Booking: ${item.destination}",
                                     style = MaterialTheme.typography.titleMedium,
-                                    color = Color(0xFF1A1A1A) // Pure Black for clarity
+                                    color = Color(0xFF1A1A1A)
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
-                                // Message (Sharp with proper line height)
+                                // Message//
                                 Text(
                                     text = item.message,
                                     style = MaterialTheme.typography.bodyLarge,
-                                    color = Color.Black.copy(alpha = 0.8f) // Dark Gray-Black
+                                    color = Color.Black.copy(alpha = 0.8f)
                                 )
                             }
 
@@ -109,7 +109,7 @@ fun NotificationScreen(
                                 Icon(
                                     imageVector = Icons.Default.Delete,
                                     contentDescription = "Delete",
-                                    tint = Color(0xFFFF5252) // Sharp Red
+                                    tint = Color(0xFFFF5252)
                                 )
                             }
                         }
