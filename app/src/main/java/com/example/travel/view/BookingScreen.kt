@@ -86,7 +86,7 @@ fun BookingScreen(
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            // --- Input Fields---
+            // --- Input Fields---//
             Text("Full Name", fontWeight = FontWeight.Medium, fontSize = 14.sp)
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedTextField(
@@ -142,7 +142,7 @@ fun BookingScreen(
 
             Spacer(modifier = Modifier.height(50.dp))
 
-            // --- Confirm Button---
+            // --- Confirm Button---//
             Button(
                 onClick = {
                     viewModel.confirmBooking(destinationName, price) { success ->
