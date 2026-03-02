@@ -78,6 +78,9 @@ fun BookingScreen(
                 )
             }
 
+
+
+
             Text(
                 "Please fill in the information below to book.",
                 fontSize = 14.sp,
