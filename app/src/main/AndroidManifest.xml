@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel">
         <activity
-            android:name=".view.DestinationDetailsScreen"
+            android:name=".view.SecurityScreen"
             android:exported="true"
-            android:label="@string/title_activity_destination_details_screen"
+            android:label="@string/title_activity_security_screen"
             android:theme="@style/Theme.Travel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +23,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.DashboardScreenUI"
+            android:name=".view.SecurityScreen.kt"
             android:exported="true"
-            android:label="@string/title_activity_dashboard_screen_ui"
+            android:label="@string/title_activity_security_screen.kt"
             android:theme="@style/Theme.Travel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,42 +34,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".model.MainActivityuu"
+            android:name=".view.ProfileScreen"
             android:exported="true"
-            android:label="@string/title_activity_main_activityuu"
-            android:theme="@style/Theme.Travel">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".model.AuthResult"
-            android:exported="true"
-            android:label="@string/title_activity_auth_result"
-            android:theme="@style/Theme.Travel">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ColorConstants"
-            android:exported="true"
-            android:label="@string/title_activity_color_constants"
-            android:theme="@style/Theme.Travel">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".DashboardScreen"
-            android:exported="true"
-            android:label="@string/title_activity_dashboard_screen"
+            android:label="@string/title_activity_profile_screen"
             android:theme="@style/Theme.Travel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,7 +47,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_main"
             android:theme="@style/Theme.Travel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

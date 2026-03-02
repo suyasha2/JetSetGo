@@ -13,4 +13,23 @@
     <string name="title_activity_main_activityuu">MainActivityuu</string>
     <string name="title_activity_dashboard_screen_ui">DashboardScreenUI</string>
     <string name="title_activity_destination_details_screen">DestinationDetailsScreen</string>
+    <string name="title_activity_destination_detail_screen">DestinationDetailScreen</string>
+    <string name="title_activity_dashboard_view_model">DashboardViewModel</string>
+    <string name="title_activity_destination_screen">DestinationScreen</string>
+    <string name="title_activity_booking_screen">BookingScreen</string>
+    <string name="title_activity_package_screen_details">PackageScreenDetails</string>
+    <string name="title_activity_package_detail_screen.kt">PackageDetailScreen.kt</string>
+    <string name="title_activity_package_detail_screen">PackageDetailScreen</string>
+    <string name="title_activity_travel_repository">TravelRepository</string>
+    <string name="title_activity_package_view_model">PackageViewModel</string>
+    <string name="title_activity_booking_repo">BookingRepo</string>
+    <string name="title_activity_booking_view_model">BookingViewModel</string>
+    <string name="title_activity_booking_repo_impl">BookingRepoImpl</string>
+    <string name="title_activity_notification_screen">NotificationScreen</string>
+    <string name="title_activity_notification_helper">NotificationHelper</string>
+    <string name="title_activity_notification_repo">NotificationRepo</string>
+    <string name="title_activity_notification_view_model">NotificationViewModel</string>
+    <string name="title_activity_profile_screen">ProfileScreen</string>
+    <string name="title_activity_security_screen.kt">SecurityScreen.kt</string>
+    <string name="title_activity_security_screen">SecurityScreen</string>
 </resources>
