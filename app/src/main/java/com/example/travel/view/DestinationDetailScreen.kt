@@ -58,7 +58,7 @@ fun DestinationDetailScreen(
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
-                onClick = onViewPackages, // Click garda package page ma jane
+                onClick = onViewPackages,
                 modifier = Modifier.fillMaxWidth().height(55.dp),
                 shape = RoundedCornerShape(15.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A90E2))
