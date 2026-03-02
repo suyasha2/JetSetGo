@@ -65,18 +65,31 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-        // ... existing dependencies ...
-
-        // 1. Navigation Compose
+    // 1. Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
-        // 2. Coroutines (needed for delay in Splash Screen)
+    // 2. Coroutines (needed for delay in Splash Screen)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.navigation:navigation-compose:2.8.5")
     implementation("io.coil-kt:coil-compose:2.5.0")
+    // Unit Testing
+    testImplementation("org.mockito:mockito-core:5.11.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("junit:junit:4.13.2")
 
+    // Instrumented Tests //
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test:runner:1.5.0")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
 
+    // Compose Testing
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.01"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
+    // Manifest for Test Activity
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 }
